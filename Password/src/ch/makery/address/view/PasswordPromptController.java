@@ -16,15 +16,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class PasswordWindowController {
+public class PasswordPromptController {
 	@FXML
-	private Label pwPrompt;
+	private Label promptLabel;
 	@FXML
-	private Label pw;
+	private PasswordField password;
 	@FXML
-	private Label ok;
+	private Button ok;
 	@FXML
-	private Label help;
+	private Button help;
 	@FXML
 	private Label message;
 	
@@ -35,7 +35,7 @@ public class PasswordWindowController {
      * The constructor.
      * The constructor is called before the initialize() method.
      */
-    public PasswordWindowController() {
+    public PasswordPromptController() {
     }
 
     /**
@@ -44,6 +44,7 @@ public class PasswordWindowController {
      */
     @FXML
     private void initialize() {
+    	message = new Label("");
     }
     
     /**
@@ -57,12 +58,12 @@ public class PasswordWindowController {
     
     @FXML
     private void handleOK() {
-    	if (!pw.getText().equals("bugaboo")) {
+    	if (!password.getText().equals("bugaboo")) {
             message.setText("Password denied.");
         } else {
             message.setText("Password confimed.");
         }
-//        pw.clear();
+        password.clear();
     }
     
     @FXML
